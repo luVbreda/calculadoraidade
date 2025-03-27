@@ -28,8 +28,25 @@ body {
     width: 600px;
     max-width: 90%;
     padding: 3rem;
-    border-radius: 1.5rem 1.5rem 10rem 1.5rem;
+    border-radius: 1.5rem 1.5rem 6rem 1.5rem; /* Alterado aqui */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adicionando o detalhe no canto inferior direito */
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: var(--primary);
+    border-radius: 50% 0 0 0;
+    transform: translate(30%, 30%);
+    opacity: 0.1;
+    z-index: 0;
 }
 
 h1 {
@@ -37,11 +54,14 @@ h1 {
     margin-bottom: 2rem;
     font-size: 2.5rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .input-container {
     position: relative;
     margin-bottom: 2rem;
+    z-index: 1;
 }
 
 .date-input {
@@ -53,6 +73,9 @@ h1 {
     font-weight: 700;
     color: var(--off-black);
     transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
 }
 
 .date-input:focus {
@@ -70,6 +93,8 @@ h1 {
     margin-top: 0.5rem;
     font-style: italic;
     display: none;
+    position: relative;
+    z-index: 1;
 }
 
 .error-message.show {
@@ -91,6 +116,8 @@ h1 {
     align-items: center;
     margin: 2rem auto;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
 }
 
 .calculate-btn:hover {
@@ -102,6 +129,8 @@ h1 {
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid var(--light-grey);
+    position: relative;
+    z-index: 1;
 }
 
 .result-line {
@@ -120,6 +149,11 @@ h1 {
 @media (max-width: 600px) {
     .container {
         padding: 2rem;
+    }
+    
+    .container::after {
+        width: 100px;
+        height: 100px;
     }
     
     h1 {
